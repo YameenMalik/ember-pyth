@@ -1,0 +1,29 @@
+{
+  "name": "ember-protocol-testing",
+  "version": "1.0.0",
+  "description": "TypeScript project for testing Ember Protocol contracts with Pyth price feeds",
+  "main": "dist/fetch-pyth-id.js",
+  "scripts": {
+    "build": "tsc",
+    "fetch": "ts-node fetch-pyth-id.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "sui",
+    "pyth",
+    "price-feeds",
+    "ember-protocol",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@mysten/sui": "^1.0.0",
+    "@pythnetwork/pyth-sui-js": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}

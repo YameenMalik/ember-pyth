@@ -1,0 +1,12 @@
+[package]
+name = "testing"
+edition = "2024.beta" 
+
+[dependencies]
+EmberVaults = { git = "https://github.com/fireflyprotocol/ember-protocol-contract-interfaces.git", rev = "main" }
+Pyth = { local = "./pyth"}
+
+[addresses]
+testing = "0x0"
+
+
