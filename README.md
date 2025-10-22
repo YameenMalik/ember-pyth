@@ -32,7 +32,7 @@ sui client call `
   0x6
 ```
 
-The contract call emits a dummy event `ReceiptTokenPrice`
+The contract call emits a dummy event `ReceiptTokenPrice` ( This is only for testing, most likely the user may want this function to return the price, so please update the method before publishing if that is what you need. Thanks)
 ```
 ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │ Transaction Block Events                                                                                  │
