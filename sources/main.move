@@ -24,13 +24,19 @@ const U64_MAX: u128 = 18446744073709551615; // 2^64 - 1
 
 // Entry function fetching vault rate and prices
 entry fun get_receipt_token_price<T,R>(ember_vault: &Vault<T,R>, deposit_token_price_info: &PriceInfoObject, clock: &Clock) {
+    let (deposit_token_price, receipt_token_price) = get_ember_vault_token_price(ember_vault, deposit_token_price_info, clock);
+    emit (ReceiptTokenPrice { rate, deposit_token_price, receipt_token_price });
+}
+
+// public getter to get the deposit and receipt token price of ember vault
+public fun get_ember_vault_token_price<T,R>(ember_vault: &Vault<T,R>, deposit_token_price_info: &PriceInfoObject, clock: &Clock): (u128, u128) {
 
     // get vault rate
     let rate = ember_vaults::vault::get_vault_rate(ember_vault);
 
     let deposit_token_price = get_pyth_oracle_price(deposit_token_price_info, clock);
     let receipt_token_price = base_div(deposit_token_price, rate as u128);
-    emit (ReceiptTokenPrice { rate, deposit_token_price, receipt_token_price });
+    (deposit_token_price, receipt_token_price)
 }
 
 
